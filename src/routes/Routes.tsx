@@ -1,5 +1,5 @@
 import React from 'shell-mfe/react'
-import { Routes as RoutesDom, Route } from 'shell-mfe/react-router-dom'
+import { Switch, Route } from 'shell-mfe/react-router-dom'
 
 const HomePageLazy = React.lazy(() => import('pages/Home'))
 const DashboardPageLazy = React.lazy(() => import('pages/Dashboard'))
@@ -7,21 +7,21 @@ const DashboardPageLazy = React.lazy(() => import('pages/Dashboard'))
 export const Routes = () => {
   const routesMap = [
     {
-      index: true,
+      exact: true,
       path: '/',
       element: HomePageLazy,
     },
     {
-      path: 'dashboard',
+      path: '/dashboard',
       element: DashboardPageLazy,
     },
   ]
 
   return (
-    <RoutesDom>
+    <Switch>
       {routesMap.map(({ element: Element, ...restRoute }) => (
-        <Route {...restRoute} element={<Element />} />
+        <Route {...restRoute} component={Element} />
       ))}
-    </RoutesDom>
+    </Switch>
   )
 }

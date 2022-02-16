@@ -1,4 +1,5 @@
 import React from 'shell-mfe/react'
+import { Button as ButtonMui } from 'shell-mfe/@material-ui/core'
 
 interface ButtonProps {
   label: string
@@ -7,7 +8,13 @@ interface ButtonProps {
 const Button = ({ label }: ButtonProps): JSX.Element => {
   const [count, setCount] = React.useState(0)
 
-  return <button type="button" onClick={() => setCount(count + 1)}>{`${label} - ${count}`}</button>
+  return (
+    <ButtonMui
+      variant="contained"
+      color="secondary"
+      onClick={() => setCount(count + 1)}
+    >{`${label} - ${count}`}</ButtonMui>
+  )
 }
 
 export default Button

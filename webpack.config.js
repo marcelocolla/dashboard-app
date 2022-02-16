@@ -35,6 +35,7 @@ module.exports = {
       filename: 'remoteEntry.js',
       exposes: {
         './Button': './src/components/Button.tsx',
+        './Home': './src/pages/Home/index.ts',
       },
       remotes: {
         'shell-mfe': `shellMfe@${REMOTE_HOST}/dist/remoteEntry.js`,
